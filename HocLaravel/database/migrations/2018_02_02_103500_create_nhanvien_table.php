@@ -14,14 +14,14 @@ class CreateNhanvienTable extends Migration
     public function up()
     {
         Schema::create('nhanvien', function (Blueprint $table) {
-            $table->engine = 'InnpDB';
+            $table->engine = 'InnoDB';
             $table->unsignedSmallInteger('nv_ma')->autoIncrement();
             $table->string('nv_taiKhoan', 50)->unique();
             $table->string('nv_matKhau', 32);
             $table->string('nv_hoTen', 100);
             $table->unsignedTinyInteger('nv_gioiTinh')->default('1');
             $table->string('nv_email;', 100)->unique();
-            $table->datetime('nv_ngaySinh')->default(DB:raw('CURRENT_TIMESTAMP'));
+            $table->datetime('nv_ngaySinh')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('nv_diaChi', 250);
             $table->string('nv_diaThoai', 12)->unique();
             $table->timestamp('nv_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));

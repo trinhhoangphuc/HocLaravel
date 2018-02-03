@@ -14,7 +14,7 @@ class CreateDonhangTable extends Migration
     public function up()
     {
         Schema::create('donhang', function (Blueprint $table) {
-            $table->engine = 'InnpDB';
+            $table->engine = 'InnoDB';
             $table->unsignedBigInteger('dh_ma')->autoIncrement();
             $table->unsignedBigInteger('kh_ma');
             $table->datetime('dh_thoiGianDatHang')->default(DB::raw('CURRENT_TIMESTAMP'));

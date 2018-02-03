@@ -32,8 +32,8 @@ class CreateHoadonsiTable extends Migration
 
             $table->foreign('nv_lapHoaDon')->references('nv_ma')->on('nhanvien')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('nv_thuTruong')->references('nv_ma')->on('nhanvien')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('dh_ma')->references(dh_ma')->on('donhang')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('ncc_ma')->references('ncc_ma')->on('nhacungcap')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('dh_ma')->references('dh_ma')->on('donhang')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('tt_ma')->references('tt_ma')->on('thanhtoan')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

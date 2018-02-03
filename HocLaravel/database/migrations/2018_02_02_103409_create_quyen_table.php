@@ -14,7 +14,7 @@ class CreateQuyenTable extends Migration
     public function up()
     {
         Schema::create('quyen', function (Blueprint $table) {
-            $table->engine = 'InnpDB';
+            $table->engine = 'InnoDB';
             $table->unsignedTinyInteger('q_ma')->autoIncrement();
             $table->string('q_ten', 50)->unique();
             $table->string('q_dienGiai', 250);

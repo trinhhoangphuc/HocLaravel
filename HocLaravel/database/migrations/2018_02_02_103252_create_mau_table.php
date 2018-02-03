@@ -14,7 +14,7 @@ class CreateMauTable extends Migration
     public function up()
     {
         Schema::create('mau', function (Blueprint $table) {
-            $table->engine = 'InnpDB';
+            $table->engine = 'InnoDB';
             $table->unsignedTinyInteger('m_ma')->autoIncrement();
             $table->string('m_ten', 50)->unique();
             $table->timestamp('m_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));

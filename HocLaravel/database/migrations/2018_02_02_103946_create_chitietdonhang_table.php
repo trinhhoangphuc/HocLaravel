@@ -21,7 +21,7 @@ class CreateChitietdonhangTable extends Migration
             $table->unsignedSmallInteger('ctdh_soluong')->default('1');
             $table->unsignedInteger('ctdh_donGia')->default('1');
 
-            $table->foreign('dh_ma')->references('nd_ma')->on('donhang')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('dh_ma')->references('dh_ma')->on('donhang')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sp_ma')->references('sp_ma')->on('sanpham')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('m_ma')->references('m_ma')->on('mau')->onDelete('cascade')->onUpdate('cascade');
         });

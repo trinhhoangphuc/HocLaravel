@@ -14,7 +14,7 @@ class CreateXuatxuTable extends Migration
     public function up()
     {
         Schema::create('xuatxu', function (Blueprint $table) {
-            $table->engine = 'InnpDB';
+            $table->engine = 'InnoDB';
             $table->unsignedSmallInteger('xx_ma')->autoIncrement();
             $table->string('xx_ten', 100)->unique();
             $table->timestamp('xx_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));

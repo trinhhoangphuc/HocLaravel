@@ -21,8 +21,8 @@ class CreateKhachhangTable extends Migration
             $table->string('kh_hoTen', 100);
             $table->unsignedTinyInteger('kh_gioiTinh')->default('1');
             $table->string('kh_email;', 100)->unique();
-            $table->datetime('kh_ngaySinh')->default(DB:raw('CURRENT_TIMESTAMP'));
-            $table->string('kh_diaChi', 250)->nullable()-->default(null);
+            $table->datetime('kh_ngaySinh')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->string('kh_diaChi', 250)->nullable()->default(null);
             $table->string('kh_diaThoai', 12)->nullable()->default(null)->unique();
             $table->timestamp('kh_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('kh_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'));

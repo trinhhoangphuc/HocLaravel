@@ -29,7 +29,7 @@ class CreatePhieunhapTable extends Migration
             $table->timestamp('pn_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('pn_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->unsignedTinyInteger('pn_trangThai')->default('2');
-            $table->unsignedBigInteger('ncc_ma');
+            $table->unsignedSmallInteger('ncc_ma');
 
             $table->foreign('nv_nguoiLapPhieu')->references('nv_ma')->on('nhanvien')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('nv_keToan')->references('nv_ma')->on('nhanvien')->onDelete('cascade')->onUpdate('cascade');

@@ -15,7 +15,7 @@ class CreateKhuyenmaiTable extends Migration
     {
         Schema::create('khuyenmai', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedSmallInteger('km_ma')->autoIncrement();
+            $table->unsignedBigInteger('km_ma')->autoIncrement();
             $table->string('km_ten', 200);
             $table->text('km_noiDung');
             $table->datetime('km_batDau');

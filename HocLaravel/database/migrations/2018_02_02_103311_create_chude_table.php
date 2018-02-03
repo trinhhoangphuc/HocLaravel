@@ -14,7 +14,7 @@ class CreateChudeTable extends Migration
     public function up()
     {
         Schema::create('chude', function (Blueprint $table) {
-            $table->engine = 'InnpDB';
+            $table->engine = 'InnoDB';
             $table->unsignedTinyInteger('cd_ma')->autoIncrement();
             $table->string('cd_ten', 50)->unique();
             $table->timestamp('cd_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));
