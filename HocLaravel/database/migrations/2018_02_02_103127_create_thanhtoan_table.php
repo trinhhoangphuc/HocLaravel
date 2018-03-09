@@ -15,12 +15,12 @@ class CreateThanhtoanTable extends Migration
     {
         Schema::create('thanhtoan', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedTinyInteger('tt_ma')->autoIncrement();
-            $table->string('tt_ten', 150)->unique();
-            $table->text('tt_dienGiai');
-            $table->timestamp('tt_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('tt_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->unsignedTinyInteger('tt_trangThai')->default('2');
+            $table->unsignedTinyInteger('tt_ma')->autoIncrement()->comment('mã thanh toán');
+            $table->string('tt_ten', 150)->unique()->comment('tên thanh toán');
+            $table->text('tt_dienGiai')->comment('diễn giải');
+            $table->timestamp('tt_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày tạo mới');
+            $table->timestamp('tt_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày cập nhật');
+            $table->unsignedTinyInteger('tt_trangThai')->default('2')->comment('trạng thái');
         });
     }
 

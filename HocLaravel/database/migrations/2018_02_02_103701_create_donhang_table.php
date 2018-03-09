@@ -15,26 +15,26 @@ class CreateDonhangTable extends Migration
     {
         Schema::create('donhang', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedBigInteger('dh_ma')->autoIncrement();
+            $table->unsignedBigInteger('dh_ma')->autoIncrement()->comment('đơn hàng mã');
             $table->unsignedBigInteger('kh_ma');
-            $table->datetime('dh_thoiGianDatHang')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->datetime('dh_thoiGianNhan');
-            $table->string('dh_nguoiNhan', 100);
-            $table->string('dh_diaChi', 250);
-            $table->string('dh_dienThoai', 12);
-            $table->string('dh_nguoiGui', 100);
-            $table->text('dh_loiChuc')->nullable()->default(null);
-            $table->unsignedTinyInteger('dh_daThanhToan')->default('0');
-            $table->unsignedSmallInteger('nv_xuly')->default('1');
-            $table->datetime('dh_ngayXuLy')->nullable()->default(null);
-            $table->unsignedSmallInteger('nv_giaoHang')->default('1');
-            $table->datetime('dh_ngayLapPhieuGiao')->nullable()->default(null);
-            $table->datetime('dh_ngayGiaoHang')->nullable()->default(null);
-            $table->timestamp('dh_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('dh_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->unsignedTinyInteger('dh_trangThai')->default('1');
-            $table->unsignedTinyInteger('vc_ma');
-            $table->unsignedTinyInteger('tt_ma');
+            $table->datetime('dh_thoiGianDatHang')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('thời gian đặt hàng');
+            $table->datetime('dh_thoiGianNhan')->comment('thời gian nhận');
+            $table->string('dh_nguoiNhan', 100)->comment('người nhận');
+            $table->string('dh_diaChi', 250)->comment('địa chỉ người nhận');
+            $table->string('dh_dienThoai', 12)->comment('điện thoại người nhận');
+            $table->string('dh_nguoiGui', 100)->comment('tên người gửi');
+            $table->text('dh_loiChuc')->nullable()->default(null)->comment('lời chúc');
+            $table->unsignedTinyInteger('dh_daThanhToan')->default('0')->comment('1 đã thanh toán, 0 chưa');
+            $table->unsignedSmallInteger('nv_xuly')->default('1')->comment('nhân viên xử lý dh');
+            $table->datetime('dh_ngayXuLy')->nullable()->default(null)->comment('ngày xử lý đơn hàng');
+            $table->unsignedSmallInteger('nv_giaoHang')->default('1')->comment('nhân viên giao hàng');
+            $table->datetime('dh_ngayLapPhieuGiao')->nullable()->default(null)->comment('ngày lập phiếu giao');
+            $table->datetime('dh_ngayGiaoHang')->nullable()->default(null)->comment('ngày giao hàng');
+            $table->timestamp('dh_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày tạo mới');
+            $table->timestamp('dh_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày cập nhật');
+            $table->unsignedTinyInteger('dh_trangThai')->default('1')->comment('1 chờ duyệt');
+            $table->unsignedTinyInteger('vc_ma')->comment('khóa ngoai vận chuyển');
+            $table->unsignedTinyInteger('tt_ma')->comment('khóa ngoại thanh toán');
 
             $table->foreign('kh_ma')->references('kh_ma')->on('khachhang')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('nv_xuLy')->references('nv_ma')->on('nhanvien')->onDelete('cascade')->onUpdate('cascade');

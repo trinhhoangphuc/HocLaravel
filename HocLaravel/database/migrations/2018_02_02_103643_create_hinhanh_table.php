@@ -15,9 +15,9 @@ class CreateHinhanhTable extends Migration
     {
         Schema::create('hinhanh', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedBigInteger('sp_ma');
-            $table->unsignedTinyInteger('ha_stt')->default('1');
-            $table->string('ha_ten',150);
+            $table->unsignedBigInteger('sp_ma')->comment('sản phẩm mã khóa ngoại');
+            $table->unsignedTinyInteger('ha_stt')->default('1')->comment('hình sản phẩm');
+            $table->string('ha_ten',150)->comment('hình ảnh tên');
 
             $table->foreign('sp_ma')->references('sp_ma')->on('sanpham')->onDelete('cascade')->onUpdate('cascade');
         });

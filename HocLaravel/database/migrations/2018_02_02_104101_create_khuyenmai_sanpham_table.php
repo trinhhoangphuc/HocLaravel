@@ -15,11 +15,11 @@ class CreateKhuyenmaiSanphamTable extends Migration
     {
         Schema::create('khuyenmai_sanpham', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedBigInteger('km_ma');
-            $table->unsignedBigInteger('sp_ma');
-            $table->unsignedTinyInteger('m_ma');
-            $table->string('kmsp_giaTri', 50)->default('100;0');
-            $table->unsignedTinyInteger('kmsp_trangThai')->default('2');
+            $table->unsignedBigInteger('km_ma')->comment('mã khuyến mãi khóa ngoại');
+            $table->unsignedBigInteger('sp_ma')->comment('sản phẩm mã khóa ngoại');
+            $table->unsignedTinyInteger('m_ma')->comment('màu khóa ngoại');
+            $table->string('kmsp_giaTri', 50)->default('100;0')->comment('giá trị');
+            $table->unsignedTinyInteger('kmsp_trangThai')->default('2')->comment('trạng thái');
 
             $table->foreign('km_ma')->references('km_ma')->on('khuyenmai')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sp_ma')->references('sp_ma')->on('sanpham')->onDelete('cascade')->onUpdate('cascade');

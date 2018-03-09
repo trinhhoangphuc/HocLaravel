@@ -15,8 +15,8 @@ class CreateChudeSanphamTable extends Migration
     {
         Schema::create('chude_sanpham', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedBigInteger('sp_ma');
-            $table->unsignedTinyInteger('cd_ma');
+            $table->unsignedBigInteger('sp_ma')->comment('sản phẩm mã khóa ngoại');
+            $table->unsignedTinyInteger('cd_ma')->comment('chủ đề sản phẩm khóa ngoại');
 
             $table->foreign('cd_ma')->references('cd_ma')->on('chude')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sp_ma')->references('sp_ma')->on('sanpham')->onDelete('cascade')->onUpdate('cascade');

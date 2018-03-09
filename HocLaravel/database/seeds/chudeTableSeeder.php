@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
 
 class chudeTableSeeder extends Seeder
 {
@@ -12,21 +11,18 @@ class chudeTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create('vi_VN');
-        $now = new Carbon('2018-02-06', 'Asia/Ho_Chi_Minh');
         $list = [];
-
-        for($i=1; $i<=20; $i++){
-        	$taomoi = $now->copy()->addSeconds($faker->numberBetween(1,255555));
-        	$capnhat = $taomoi->copy()->addSeconds($faker->numberBetween(1,255555));
+        $chude = ["Đám Cưới", "Đám Ma", "8 tháng 3", "21 tháng 11"];
+        $today = new DateTime('2018-03-03 15:00:00');
+        for($i=0; $i<=3; $i++){
+        	$name = $chude[$i];
         	array_push($list, [
-        		"cd_taoMoi"=>$taomoi,
-        		"cd_capNhat"=>$capnhat,
-        		"cd_ten"=>$faker->text(20),
-        		"cd_trangThai"=>2
+        		'cd_ma' => $i+1,
+        		'cd_ten' => $name,
+        		'cd_taoMoi' => $today->format('Y-m-d H:i:s'),
+        		'cd_capNhat' => $today->format('Y-m-d H:i:s')
         	]);
         }
-
         DB::table('chude')->insert($list);
     }
 }

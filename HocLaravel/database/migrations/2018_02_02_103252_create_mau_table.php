@@ -15,11 +15,11 @@ class CreateMauTable extends Migration
     {
         Schema::create('mau', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedTinyInteger('m_ma')->autoIncrement();
-            $table->string('m_ten', 50)->unique();
-            $table->timestamp('m_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('m_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->unsignedTinyInteger('m_trangThai')->default('2');
+            $table->unsignedTinyInteger('m_ma')->autoIncrement()->comment('mã màu');
+            $table->string('m_ten', 50)->unique()->comment('tên màu');
+            $table->timestamp('m_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày tạo mới');
+            $table->timestamp('m_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày cập nhật');
+            $table->unsignedTinyInteger('m_trangThai')->default('2')->comment('trạng thái');
         });
     }
 

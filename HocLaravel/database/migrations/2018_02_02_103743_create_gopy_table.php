@@ -15,12 +15,12 @@ class CreateGopyTable extends Migration
     {
         Schema::create('gopy', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedBigInteger('gy_ma')->autoIncrement();
-            $table->datetime('gy_thoiGian')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->text('gy_noiDung');
-            $table->unsignedBigInteger('kh_ma');
-            $table->unsignedBigInteger('sp_ma');
-            $table->unsignedTinyInteger('gy_trangThai')->default('3');
+            $table->unsignedBigInteger('gy_ma')->autoIncrement()->comment('góp ý mã');
+            $table->datetime('gy_thoiGian')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('thời gian góp ý');
+            $table->text('gy_noiDung')->comment('nội dung góp ý');
+            $table->unsignedBigInteger('kh_ma')->comment('kh góp ý khóa ngoại');
+            $table->unsignedBigInteger('sp_ma')->comment('sản phẩm mã khóa mãi');
+            $table->unsignedTinyInteger('gy_trangThai')->default('3')->comment('trạng thái');
 
             $table->foreign('kh_ma')->references('kh_ma')->on('khachhang')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sp_ma')->references('sp_ma')->on('sanpham')->onDelete('cascade')->onUpdate('cascade');

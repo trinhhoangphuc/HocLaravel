@@ -15,11 +15,11 @@ class CreateLoaiTable extends Migration
     {
         Schema::create('loai', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedTinyInteger('l_ma')->autoIncrement();
-            $table->string('l_ten', 50)->unique();
-            $table->timestamp('l_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('l_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->unsignedTinyInteger('l_trangThai')->default('2');
+            $table->unsignedTinyInteger('l_ma')->autoIncrement()->comment('mã loại');
+            $table->string('l_ten', 50)->unique()->comment('loại tên');
+            $table->timestamp('l_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('loại tạo mới');
+            $table->timestamp('l_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('loại cập nhật');
+            $table->unsignedTinyInteger('l_trangThai')->default('2')->comment('trạng thái');
         });
     }
 

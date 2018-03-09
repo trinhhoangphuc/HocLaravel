@@ -16,13 +16,13 @@ class CreateVanchuyenTable extends Migration
         Schema::create('vanchuyen', function (Blueprint $table) {
             
             $table->engine = 'InnoDB';
-            $table->unsignedTinyInteger('vc_ma')->autoIncrement();
-            $table->string('vc_ten', 150)->unique();
-            $table->unsignedInteger('vc_chiPhi')->default('0');
-            $table->text('vc_dienGiai');
-            $table->timestamp('vc_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('vc_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->unsignedTinyInteger('vc_trangThai')->default('2');
+            $table->unsignedTinyInteger('vc_ma')->autoIncrement()->comment('Mã vận chuyển');
+            $table->string('vc_ten', 150)->unique()->comment('tên vận chuyển');
+            $table->unsignedInteger('vc_chiPhi')->default('0')->comment('chi phí vần chuyển');
+            $table->text('vc_dienGiai')->comment('diễn giải');
+            $table->timestamp('vc_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày mới tạo');
+            $table->timestamp('vc_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->commetn('ngày cập nhật');
+            $table->unsignedTinyInteger('vc_trangThai')->default('2')->comment('trạng thái vân chuyển');
 
         });
     }
