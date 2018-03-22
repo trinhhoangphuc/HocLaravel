@@ -12,27 +12,19 @@ class vanchuyenTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create('vi_VN');
-        $carbon = new Carbon('2018-02-07', 'Asia/Ho_Chi_Minh');
         $list = [];
-
-        for($i=1; $i<=5; $i++){
-        	$taomoi = $carbon->copy()->addSeconds($faker->numberBetween(1, 255555));
-        	$capnhat = $taomoi->copy()->addSeconds($faker->numberBetween(1, 255555));
-        	$chiphi = $faker->numberBetween(1, 5999999);
-        	$ten = $faker->text(20);
-        	$diengiai = $faker->text(100);
-
-        	array_push($list, [
-        		"vc_ten"=>$ten,
-        		"vc_chiPhi"=>$chiphi,
-        		"vc_dienGiai"=>$diengiai,
-        		"vc_taoMoi"=>$taomoi,
-        		"vc_capNhat"=>$capnhat,
-        		"vc_trangThai"=>2
-        	]);
+        $vanchuyen = ["Chành Xe", "ViettelPost", "Giao Hàng Nhanh", "Ship Toàn Quốc"];
+        $today = new DateTime('2018-03-03 15:00:00');
+        for($i=0; $i<=3; $i++){
+            $name = $vanchuyen[$i];
+            array_push($list, [
+                'vc_ma' => $i+1,
+                'vc_ten' => $name,
+                'vc_dienGiai'=>'Không có diễn giải',
+                'vc_taoMoi' => $today->format('Y-m-d H:i:s'),
+                'vc_capNhat' => $today->format('Y-m-d H:i:s')
+            ]);
         }
-
         DB::table('vanchuyen')->insert($list);
     }
 }

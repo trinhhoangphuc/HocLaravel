@@ -21,7 +21,7 @@ class CreateVanchuyenTable extends Migration
             $table->unsignedInteger('vc_chiPhi')->default('0')->comment('chi phí vần chuyển');
             $table->text('vc_dienGiai')->comment('diễn giải');
             $table->timestamp('vc_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày mới tạo');
-            $table->timestamp('vc_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->commetn('ngày cập nhật');
+            $table->timestamp('vc_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày cập nhật');
             $table->unsignedTinyInteger('vc_trangThai')->default('2')->comment('trạng thái vân chuyển');
 
         });

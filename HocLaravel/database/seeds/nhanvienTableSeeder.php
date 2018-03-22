@@ -68,7 +68,7 @@ class nhanvienTableSeeder extends Seeder
                 'nv_email' => $email,
                 'nv_ngaySinh' => $birthDate["birthdate"],
                 'nv_diaChi' => $address,
-                'nv_diaThoai' => $phone,
+                'nv_dienThoai' => $phone,
                 'nv_taoMoi' => $today->format('Y-m-d H:i:s'),
                 'nv_capNhat' => $today->format('Y-m-d H:i:s'),
                 'nv_trangThai' => ($i <= $nStaff-3? 2: 3),

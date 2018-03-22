@@ -11,6 +11,6 @@ class chude_sanphamTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

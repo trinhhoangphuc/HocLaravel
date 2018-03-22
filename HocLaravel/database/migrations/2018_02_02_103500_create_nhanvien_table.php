@@ -23,7 +23,7 @@ class CreateNhanvienTable extends Migration
             $table->string('nv_email', 100)->unique();
             $table->datetime('nv_ngaySinh')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày sinh');
             $table->string('nv_diaChi', 250)->comment('địa chỉ');
-            $table->string('nv_diệnThoai', 12)->unique()->comment('điện thoại');
+            $table->string('nv_dienThoai', 12)->unique()->comment('điện thoại');
             $table->timestamp('nv_taoMoi')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày tạo mới');
             $table->timestamp('nv_capNhat')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('ngày cập nhật');
             $table->unsignedTinyInteger('nv_trangThai')->default('2')->comment('trạng thái');
